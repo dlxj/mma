@@ -1,0 +1,809 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29592,        800]
+NotebookOptionsPosition[     29172,        782]
+NotebookOutlinePosition[     29528,        798]
+CellTagsIndexPosition[     29485,        795]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"NoteQ", "[", 
+   RowBox[{"note", ":", 
+    RowBox[{"_Integer", "|", "_String"}]}], "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"test", " ", "if", " ", "\"\<note\>\"", " ", "is", " ", "valid"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Note", "[", 
+   RowBox[{
+    RowBox[{"note", ":", 
+     RowBox[{"_String", "|", 
+      RowBox[{"{", "__String", "}"}]}]}], ",", "\"\<Number\>\""}], "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"return", " ", "the", " ", "\"\<number\>\""}], "-", 
+      RowBox[{"code", " ", "of", " ", "the", " ", 
+       RowBox[{"note", ".", "C4"}]}]}], "=", "0"}], ",", 
+    RowBox[{"D5", "=", "14"}], ",", 
+    RowBox[{"etc", "."}]}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Note", "[", 
+   RowBox[{
+    RowBox[{"numb", ":", 
+     RowBox[{"_Integer", "|", 
+      RowBox[{"{", "__Integer", "}"}]}]}], ",", "\"\<Name\>\""}], "]"}], " ", 
+  
+  RowBox[{"(*", 
+   RowBox[{
+   "return", " ", "the", " ", "name", " ", "of", " ", "the", " ", "note", " ",
+     "with", " ", "number", " ", "code", " ", "\"\<numb\>\""}], 
+   "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.7869146129475403`*^9, 3.7869146129488583`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Note$RegExp", ":=", "\"\<^([A-G])(#|b)?(-1|[0-9])?$\>\""}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Regular", " ", "Expression", " ", "to", " ", "match", " ", "notes"}], 
+   "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"NoteQ", "[", "note_String", "]"}], ":=", 
+  RowBox[{"StringMatchQ", "[", 
+   RowBox[{"note", ",", 
+    RowBox[{"RegularExpression", "@", "Note$RegExp"}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NoteQ", "[", "note_Integer", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"-", "60"}], "\[LessEqual]", "note", "\[LessEqual]", "67"}]}], 
+  " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "This", " ", "range", " ", "is", " ", "taken", " ", "from", " ", 
+    "SoundNote"}], "*)"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Note", "[", 
+    RowBox[{
+     RowBox[{"note_String", "?", "NoteQ"}], ",", "\"\<Number\>\""}], "]"}], ":=", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"r", ",", "sf", ",", "n"}], "}"}], ",", 
+     RowBox[{"(*", 
+      RowBox[{
+      "Divide", " ", "the", " ", "note", " ", "into", " ", "its", " ", 
+       "\"\<components\>\"", " ", "given", " ", "by", " ", "the", " ", 
+       "RegExp"}], "*)"}], 
+     RowBox[{
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"r", ",", "sf", ",", "n"}], "}"}], "=", 
+       RowBox[{"First", "@", 
+        RowBox[{"StringCases", "[", 
+         RowBox[{"note", ",", 
+          RowBox[{
+           RowBox[{"RegularExpression", "@", "Note$RegExp"}], 
+           "\[RuleDelayed]", 
+           RowBox[{"{", 
+            RowBox[{"\"\<$1\>\"", ",", "\"\<$2\>\"", ",", "\"\<$3\>\""}], 
+            "}"}]}]}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<C\>\"", "\[Rule]", "0"}], ",", 
+          RowBox[{"\"\<D\>\"", "\[Rule]", "2"}], ",", 
+          RowBox[{"\"\<E\>\"", "\[Rule]", "4"}], ",", 
+          RowBox[{"\"\<F\>\"", "\[Rule]", "5"}], ",", 
+          RowBox[{"\"\<G\>\"", "\[Rule]", "7"}], ",", 
+          RowBox[{"\"\<A\>\"", "\[Rule]", "9"}], ",", 
+          RowBox[{"\"\<B\>\"", "\[Rule]", "11"}]}], "|>"}], "[", "r", "]"}], 
+       "+", 
+       RowBox[{"(*", 
+        RowBox[{
+         RowBox[{"map", " ", "the", " ", "base", " ", "not", " ", "A"}], "-", 
+         "G"}], "*)"}], 
+       RowBox[{"Which", "[", 
+        RowBox[{
+         RowBox[{"sf", "\[Equal]", "\"\<#\>\""}], ",", "1", ",", 
+         RowBox[{"sf", "\[Equal]", "\"\<b\>\""}], ",", 
+         RowBox[{"-", "1"}], ",", "True", ",", "0"}], "]"}], "+", 
+       RowBox[{"(*", 
+        RowBox[{"Map", " ", "sharp", " ", "and", " ", "flats"}], "*)"}], 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"n", "\[NotEqual]", "\"\<\>\""}], ",", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"ToExpression", "@", "n"}], "-", "4"}], ")"}], "*", 
+          "12"}], ",", "0"}], "]"}]}]}]}], "]"}]}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Map", " ", "octave"}], "*)"}], "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "opposite", " ", "of", " ", "what", " ", "was", " ", 
+    "previously", " ", "defined"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Note", "[", 
+    RowBox[{
+     RowBox[{"number_Integer", "?", "NoteQ"}], ",", "\"\<Name\>\""}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"0", "\[Rule]", "\"\<C\>\""}], ",", 
+       RowBox[{"1", "\[Rule]", "\"\<C#\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<D\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<D#\>\""}], ",", 
+       RowBox[{"4", "\[Rule]", "\"\<E\>\""}], ",", 
+       RowBox[{"5", "\[Rule]", "\"\<F\>\""}], ",", 
+       RowBox[{"6", "\[Rule]", "\"\<F#\>\""}], ",", 
+       RowBox[{"7", "\[Rule]", "\"\<G\>\""}], ",", 
+       RowBox[{"8", "\[Rule]", "\"\<G#\>\""}], ",", 
+       RowBox[{"9", "\[Rule]", "\"\<A\>\""}], ",", 
+       RowBox[{"10", "\[Rule]", "\"\<A#\>\""}], ",", 
+       RowBox[{"11", "\[Rule]", "\"\<B\>\""}]}], "|>"}], "[", 
+     RowBox[{"Mod", "[", 
+      RowBox[{"number", ",", "12"}], "]"}], "]"}], "<>", 
+    RowBox[{"ToString", "[", 
+     RowBox[{"4", "+", 
+      RowBox[{"Floor", "[", 
+       RowBox[{"number", "/", "12"}], "]"}]}], "]"}]}]}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{"To", " ", "create", " ", "chords", " ", 
+    RowBox[{"we", "'"}], "ll", " ", "need", " ", "to", " ", "transpose", " ", 
+    "the", " ", "root", " ", "note"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Note", "[", 
+    RowBox[{
+     RowBox[{"number", ":", 
+      RowBox[{
+       RowBox[{"_Integer", "?", "NoteQ"}], "|", 
+       RowBox[{"{", 
+        RowBox[{"__Integer", "?", "NoteQ"}], "}"}]}]}], ",", "transp_Integer",
+      ",", "\"\<Transposition\>\""}], "]"}], "/;", 
+   RowBox[{
+    RowBox[{"NoteQ", "@", 
+     RowBox[{"Max", "[", 
+      RowBox[{"transp", "+", "transp"}], "]"}]}], "\[And]", 
+    RowBox[{"NoteQ", "@", 
+     RowBox[{"Min", "[", 
+      RowBox[{"transp", "+", "transp"}], "]"}]}]}]}], ":=", 
+  RowBox[{"number", "+", "transp"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Note", "[", 
+    RowBox[{
+     RowBox[{"note", ":", 
+      RowBox[{
+       RowBox[{"_String", "?", "NoteQ"}], "|", 
+       RowBox[{"{", 
+        RowBox[{"__String", "?", "NoteQ"}], "}"}]}]}], ",", "transp_Integer", 
+     ",", "\"\<Transposition\>\""}], "]"}], ":=", 
+   RowBox[{"Note", "[", 
+    RowBox[{
+     RowBox[{"Note", "[", 
+      RowBox[{
+       RowBox[{"Note", "[", 
+        RowBox[{"note", ",", "\"\<Number\>\""}], "]"}], ",", "transp", ",", 
+       "\"\<Transposition\>\""}], "]"}], ",", "\"\<Name\>\""}], "]"}]}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", 
+   RowBox[{"\"\<Vectorize\>\"", " ", "the", " ", "inputs"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Note", "[", 
+   RowBox[{
+    RowBox[{"notes", ":", 
+     RowBox[{"{", 
+      RowBox[{"__String", "?", "NoteQ"}], "}"}]}], ",", "\"\<Number\>\""}], 
+   "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Note", "[", 
+     RowBox[{"#", ",", "\"\<Number\>\""}], "]"}], "&"}], "/@", 
+   "notes"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Note", "[", 
+   RowBox[{
+    RowBox[{"numbers", ":", 
+     RowBox[{"{", 
+      RowBox[{"__Integer", "?", "NoteQ"}], "}"}]}], ",", "\"\<Name\>\""}], 
+   "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Note", "[", 
+     RowBox[{"#", ",", "\"\<Name\>\""}], "]"}], "&"}], "/@", 
+   "numbers"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Note", "[", 
+   RowBox[{
+    RowBox[{"note", ":", 
+     RowBox[{
+      RowBox[{"_Integer", "?", "NoteQ"}], "|", 
+      RowBox[{"_String", "?", "NoteQ"}]}]}], ",", 
+    RowBox[{"transp", ":", 
+     RowBox[{"{", "__Integer", "}"}]}], ",", "\"\<Transposition\>\""}], "]"}],
+   ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Note", "[", 
+     RowBox[{"note", ",", "#", ",", "\"\<Transposition\>\""}], "]"}], "&"}], "/@",
+    "transp"}]}]}], "Input",
+ CellChangeTimes->{{3.786914722223222*^9, 3.786914722225511*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"chord_String", ",", "\"\<Root\>\""}], "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Give", " ", "the", " ", "root", " ", "note", " ", "for", " ", "the", " ", 
+     RowBox[{"chord", ".", "Caug13"}]}], "\[Rule]", "C"}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"chord_String", ",", "\"\<Type\>\""}], "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"return", " ", "the", " ", 
+     RowBox[{"quality", "/", "type"}], " ", "of", " ", "chord"}], ",", 
+    "Major", ",", "Minor", ",", 
+    RowBox[{"etc", "."}]}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"chord_String", ",", "\"\<Number\>\""}], "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Return", " ", "a", " ", "list", " ", "with", " ", "the", " ", "number"}],
+     "-", 
+    RowBox[{
+    "form", " ", "of", " ", "the", " ", "notes", " ", "in", " ", "the", " ", 
+     "chord"}]}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"chord_String", ",", "\"\<Notes\>\""}], "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{
+   "The", " ", "actual", " ", "notes", " ", "of", " ", "that", " ", "chord"}],
+    "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.786914782914093*^9, 3.786914782915636*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{
+    RowBox[{"chord_String", "/;", 
+     RowBox[{
+      RowBox[{"StringLength", "@", "chord"}], "\[GreaterEqual]", "2"}]}], 
+    ",", "\"\<Root\>\""}], "]"}], ":=", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"MemberQ", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<#\>\"", ",", "\"\<b\>\""}], "}"}], ",", 
+      RowBox[{"StringTake", "[", 
+       RowBox[{"chord", ",", 
+        RowBox[{"{", "2", "}"}]}], "]"}]}], "]"}], ",", 
+    RowBox[{"StringTake", "[", 
+     RowBox[{"chord", ",", "2"}], "]"}], ",", 
+    RowBox[{"StringTake", "[", 
+     RowBox[{"chord", ",", "1"}], "]"}]}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"chord_String", ",", "\"\<Notes\>\""}], "]"}], ":=", 
+  RowBox[{"Note", "[", 
+   RowBox[{
+    RowBox[{"Chord", "[", 
+     RowBox[{"chord", ",", "\"\<Root\>\""}], "]"}], ",", 
+    RowBox[{"Chord", "[", 
+     RowBox[{
+      RowBox[{"Chord", "[", 
+       RowBox[{"chord", ",", "\"\<Type\>\""}], "]"}], ",", "\"\<Number\>\""}],
+      "]"}], ",", "\"\<Transposition\>\""}], "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Chord", "[", 
+    RowBox[{
+     RowBox[{"notes", ":", 
+      RowBox[{"{", "__String", "}"}]}], ",", "\"\<Notes\>\""}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Chord", "[", 
+      RowBox[{"#", ",", "\"\<Notes\>\""}], "]"}], "&"}], "/@", "notes"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Chord", "[", 
+    RowBox[{
+     RowBox[{"chord_String", "/;", 
+      RowBox[{
+       RowBox[{"StringLength", "@", "chord"}], "\[GreaterEqual]", "2"}]}], 
+     ",", "\"\<Type\>\""}], "]"}], ":=", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"rest", "=", 
+       RowBox[{"StringReplace", "[", 
+        RowBox[{"chord", ",", 
+         RowBox[{
+          RowBox[{"Chord", "[", 
+           RowBox[{"chord", ",", "\"\<Root\>\""}], "]"}], "\[Rule]", 
+          "\"\<\>\""}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"Which", "[", 
+      RowBox[{
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(M|maj)?$\>\""}]}], "]"}], 
+       ",", "\"\<Major\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m|min)$\>\""}]}], "]"}], 
+       ",", "\"\<Minor\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(aug|[+])$\>\""}]}], "]"}], 
+       ",", "\"\<Augmented\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(dim|o)$\>\""}]}], "]"}], 
+       ",", "\"\<Diminished\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(M|maj)6$\>\""}]}], "]"}], 
+       ",", "\"\<Major Sixth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m|min)6$\>\""}]}], "]"}], 
+       ",", "\"\<Minor Sixth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(7|dom7)$\>\""}]}], "]"}], 
+       ",", "\"\<Dominant Seventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(M|maj)7$\>\""}]}], "]"}], 
+       ",", "\"\<Major Seventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m|min)7$\>\""}]}], "]"}], 
+       ",", "\"\<Minor Seventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(aug|[+])7$\>\""}]}], "]"}], 
+       ",", "\"\<Augmented Seventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(dim|o)7$\>\""}]}], "]"}], 
+       ",", "\"\<Diminished Seventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(0)7$\>\""}]}], "]"}], ",", 
+       "\"\<Half Diminished Seventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m/M7)$\>\""}]}], "]"}], 
+       ",", "\"\<Minor/Major Seventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(M|maj)7[+]5$\>\""}]}], 
+        "]"}], ",", "\"\<Augmented Major Seventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(maj7[-]5)$\>\""}]}], "]"}], 
+       ",", "\"\<Dominant Seventh Flat Five Chord\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(9|dom9)$\>\""}]}], "]"}], 
+       ",", "\"\<Dominant Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(M|maj)9$\>\""}]}], "]"}], 
+       ",", "\"\<Major Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m|min)9$\>\""}]}], "]"}], 
+       ",", "\"\<Minor Dominant Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^[+](M|maj)9$\>\""}]}], "]"}],
+        ",", "\"\<Augmented Major Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(aug|[+])9$\>\""}]}], "]"}], 
+       ",", "\"\<Augmented Dominant Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m/M9)$\>\""}]}], "]"}], 
+       ",", "\"\<Minor/Major Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(0)9$\>\""}]}], "]"}], ",", 
+       "\"\<Half Diminished Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(0b)9$\>\""}]}], "]"}], ",", 
+       "\"\<Half Diminished Minor Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(o|dim)9$\>\""}]}], "]"}], 
+       ",", "\"\<Diminished Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(ob)9$\>\""}]}], "]"}], ",", 
+       "\"\<Diminished Minor Ninth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(11|dom11)$\>\""}]}], "]"}], 
+       ",", "\"\<Dominant Eleventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(M|maj)11$\>\""}]}], "]"}], 
+       ",", "\"\<Major Eleventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m/M11)$\>\""}]}], "]"}], 
+       ",", "\"\<Minor/Major Eleventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m|min)11$\>\""}]}], "]"}], 
+       ",", "\"\<Minor Eleventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^[+](M|maj)11$\>\""}]}], 
+        "]"}], ",", "\"\<Augmented Major Eleventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(aug|[+])11$\>\""}]}], "]"}],
+        ",", "\"\<Augmented Eleventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(0)11$\>\""}]}], "]"}], ",", 
+       "\"\<Half Diminished Eleventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(dim|o)11$\>\""}]}], "]"}], 
+       ",", "\"\<Diminished Eleventh\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(M|maj)13$\>\""}]}], "]"}], 
+       ",", "\"\<Major Thirteenth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(13|dom13)$\>\""}]}], "]"}], 
+       ",", "\"\<Dominant Thirteenth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m/M13)$\>\""}]}], "]"}], 
+       ",", "\"\<Minor/Major Thirteenth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(m|min)13$\>\""}]}], "]"}], 
+       ",", "\"\<Minor Dominant Thirteenth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^[+](M|maj)13$\>\""}]}], 
+        "]"}], ",", "\"\<Augmented Major Thirteenth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(aug|[+])13$\>\""}]}], "]"}],
+        ",", "\"\<Augmented Dominant Thirteenth\>\"", ",", 
+       RowBox[{"StringMatchQ", "[", 
+        RowBox[{"rest", ",", 
+         RowBox[{"RegularExpression", "@", "\"\<^(0)13$\>\""}]}], "]"}], ",", 
+       "\"\<Half Diminished Thirteenth\>\"", ",", "True", ",", "$Failed"}], 
+      "]"}]}], "]"}]}], "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", "Chords", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Major\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "7"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "7"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "8"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Chord", "[", 
+    RowBox[{"\"\<Diminished\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "3", ",", "6"}], "}"}]}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Major Sixth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "7", ",", "9"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Chord", "[", 
+    RowBox[{"\"\<Minor Sixth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "3", ",", "7", ",", "9"}], "}"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Dominant Seventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "7", ",", "10"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Major Seventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "7", ",", "11"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor Seventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "7", ",", "10"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented Seventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "8", ",", "10"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Diminished Seventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "6", ",", "9"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Half Diminished Seventh\>\"", ",", "\"\<Number\>\""}], "]"}], 
+  ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "6", ",", "10"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor/Major Seventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "7", ",", "11"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented Major Seventh\>\"", ",", "\"\<Number\>\""}], "]"}], 
+  ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "8", ",", "11"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Chord", "[", 
+    RowBox[{"\"\<Dominant Seventh Flat Five\>\"", ",", "\"\<Number\>\""}], 
+    "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "4", ",", "6", ",", "10"}], "}"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Major Ninth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "7", ",", "11", ",", "14"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Dominant Ninth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "7", ",", "10", ",", "14"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor/Major Ninth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "7", ",", "11", ",", "14"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor Dominant Ninth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "7", ",", "10", ",", "14"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented Major Ninth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "8", ",", "11", ",", "14"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented Dominant Ninth\>\"", ",", "\"\<Number\>\""}], "]"}],
+   ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "8", ",", "10", ",", "14"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Half Diminished Ninth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "6", ",", "10", ",", "14"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Half Diminished Minor Ninth\>\"", ",", "\"\<Number\>\""}], 
+   "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "6", ",", "10", ",", "13"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Diminished Ninth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "6", ",", "10", ",", "14"}], "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Chord", "[", 
+    RowBox[{"\"\<Diminished Minor Ninth\>\"", ",", "\"\<Number\>\""}], "]"}], 
+   ":=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "3", ",", "6", ",", "9", ",", "13"}], "}"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Dominant Eleventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "7", ",", "10", ",", "14", ",", "17"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Major Eleventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "7", ",", "11", ",", "14", ",", "17"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor/Major Eleventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "7", ",", "11", ",", "14", ",", "17"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor Eleventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "7", ",", "10", ",", "14", ",", "17"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented Major Eleventh\>\"", ",", "\"\<Number\>\""}], "]"}],
+   ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "8", ",", "11", ",", "14", ",", "17"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented Eleventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "4", ",", "8", ",", "10", ",", "14", ",", "17"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Half Diminished Eleventh\>\"", ",", "\"\<Number\>\""}], "]"}],
+   ":=", 
+  RowBox[{"{", 
+   RowBox[{"0", ",", "3", ",", "6", ",", "10", ",", "13", ",", "17"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Chord", "[", 
+    RowBox[{"\"\<Diminished Eleventh\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "3", ",", "6", ",", "2", ",", "13", ",", "16"}], 
+    "}"}]}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Major Thirteenth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "4", ",", "7", ",", "11", ",", "2", ",", "17", ",", "21"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Dominant Thirteenth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "4", ",", "7", ",", "10", ",", "14", ",", "17", ",", "21"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor/Major Thirteenth\>\"", ",", "\"\<Number\>\""}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "3", ",", "7", ",", "11", ",", "14", ",", "17", ",", "21"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Minor Dominant Thirteenth\>\"", ",", "\"\<Number\>\""}], 
+   "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "3", ",", "7", ",", "10", ",", "14", ",", "17", ",", "21"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented Major Thirteenth\>\"", ",", "\"\<Number\>\""}], 
+   "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "4", ",", "8", ",", "11", ",", "14", ",", "17", ",", "21"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Augmented Dominant Thirteenth\>\"", ",", "\"\<Number\>\""}], 
+   "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "4", ",", "8", ",", "10", ",", "14", ",", "17", ",", "21"}], 
+   "}"}]}], "\n", 
+ RowBox[{
+  RowBox[{"Chord", "[", 
+   RowBox[{"\"\<Half Diminished Thirteenth\>\"", ",", "\"\<Number\>\""}], 
+   "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "3", ",", "6", ",", "10", ",", "14", ",", "17", ",", "21"}], 
+   "}"}]}]}], "Input",
+ CellChangeTimes->{{3.7869148194127703`*^9, 3.786914819414414*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"SoundNote", "[", 
+      RowBox[{"#", ",", "0.5"}], "]"}], "&"}], "/@", 
+    RowBox[{"Chord", "[", 
+     RowBox[{
+      RowBox[{"StringSplit", "[", 
+       RowBox[{"\"\<C Dm7 Fmaj7 Dm F C Gm Dm Gm F C\>\"", ",", "\"\< \>\""}], 
+       "]"}], ",", "\"\<Notes\>\""}], "]"}]}], "//", "Sound"}], " ", 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.786914853089673*^9, 3.786914853091147*^9}, {
+  3.786914894754128*^9, 3.786914933675704*^9}}]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{279, Automatic}, {Automatic, 50}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 6, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1195, 35, 83, "Input"],
+Cell[1756, 57, 7005, 196, 373, "Input"],
+Cell[8764, 255, 1283, 36, 108, "Input"],
+Cell[10050, 293, 18610, 471, 1298, "Input"],
+Cell[28663, 766, 505, 14, 57, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

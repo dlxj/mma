@@ -1,0 +1,645 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23988,        636]
+NotebookOptionsPosition[     23495,        616]
+NotebookOutlinePosition[     23851,        632]
+CellTagsIndexPosition[     23808,        629]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"SetDirectory", "@", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], ";", "\n", 
+    RowBox[{"Get", "@", 
+     RowBox[{"FileNameJoin", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"ParentDirectory", "[", "]"}], ",", "\"\<std.wl\>\""}], "}"}],
+       "]"}]}], ";"}], "\n", "*)"}], "\n", "\n", 
+  RowBox[{"(*", "\n", "\n", 
+   RowBox[{
+   "\:6240\:6709\:4e50\:5668", "  ", "\"\<Bass\>\"", " ", 
+    "\:5927\:63d0\:7434", " ", "\"\<Violin\>\"", " ", "\:5c0f\:63d0\:7434", 
+    "   ", "\n", "\n", "\"\<Accordion\>\"", "\t", "\"\<Agogo\>\"", "\t", 
+    "\"\<AltoSax\>\"", "\t", "\"\<Applause\>\"", "\n", "\"\<Atmosphere\>\"", 
+    "\t", "\"\<Bagpipe\>\"", "\t", "\"\<Bandoneon\>\"", "\t", "\"\<Banjo\>\"",
+     "\n", "\"\<BaritoneSax\>\"", "\t", "\"\<Bass\>\"", "\t", 
+    "\"\<BassAndLead\>\"", "\t", "\"\<Bassoon\>\"", "\n", "\"\<Bird\>\"", 
+    "\t", "\"\<BlownBottle\>\"", "\t", "\"\<Bowed\>\"", "\t", 
+    "\"\<BrassSection\>\"", "\n", "\"\<Breath\>\"", "\t", 
+    "\"\<Brightness\>\"", "\t", "\"\<BrightPiano\>\"", "\t", 
+    "\"\<Calliope\>\"", "\n", "\"\<Celesta\>\"", "\t", "\"\<Cello\>\"", "\t", 
+    "\"\<Charang\>\"", "\t", "\"\<Chiff\>\"", "\n", "\"\<Choir\>\"", "\t", 
+    "\"\<Clarinet\>\"", "\t", "\"\<Clavi\>\"", "\t", "\"\<Contrabass\>\"", 
+    "\n", "\"\<Crystal\>\"", "\t", "\"\<DrawbarOrgan\>\"", "\t", 
+    "\"\<Dulcimer\>\"", "\t", "\"\<Echoes\>\"", "\n", "\"\<ElectricBass\>\"", 
+    "\t", "\"\<ElectricGrandPiano\>\"", "\t", "\"\<ElectricGuitar\>\"", "\t", 
+    "\"\<ElectricPiano\>\"", "\n", "\"\<ElectricPiano2\>\"", "\t", 
+    "\"\<EnglishHorn\>\"", "\t", "\"\<Fiddle\>\"", "\t", "\"\<Fifths\>\"", 
+    "\n", "\"\<Flute\>\"", "\t", "\"\<FrenchHorn\>\"", "\t", 
+    "\"\<FretlessBass\>\"", "\t", "\"\<FretNoise\>\"", "\n", 
+    "\"\<Glockenspiel\>\"", "\t", "\"\<Goblins\>\"", "\t", "\"\<Guitar\>\"", 
+    "\t", "\"\<GuitarDistorted\>\"", "\n", "\"\<GuitarHarmonics\>\"", "\t", 
+    "\"\<GuitarMuted\>\"", "\t", "\"\<GuitarOverdriven\>\"", "\t", 
+    "\"\<Gunshot\>\"", "\n", "\"\<Halo\>\"", "\t", "\"\<Harmonica\>\"", "\t", 
+    "\"\<Harp\>\"", "\t", "\"\<Harpsichord\>\"", "\n", "\"\<Helicopter\>\"", 
+    "\t", "\"\<HonkyTonkPiano\>\"", "\t", "\"\<JazzGuitar\>\"", "\t", 
+    "\"\<Kalimba\>\"", "\n", "\"\<Koto\>\"", "\t", "\"\<Marimba\>\"", "\t", 
+    "\"\<MelodicTom\>\"", "\t", "\"\<Metallic\>\"", "\n", "\"\<MusicBox\>\"", 
+    "\t", "\"\<MutedTrumpet\>\"", "\t", "\"\<NewAge\>\"", "\t", 
+    "\"\<Oboe\>\"", "\n", "\"\<Ocarina\>\"", "\t", "\"\<OrchestraHit\>\"", 
+    "\t", "\"\<Organ\>\"", "\t", "\"\<PanFlute\>\"", "\n", 
+    "\"\<PercussiveOrgan\>\"", "\t", "\"\<Piano\>\"", "\t", "\"\<Piccolo\>\"",
+     "\t", "\"\<PickedBass\>\"", "\n", "\"\<PizzicatoStrings\>\"", "\t", 
+    "\"\<Polysynth\>\"", "\t", "\"\<Rain\>\"", "\t", "\"\<Recorder\>\"", 
+    "\n", "\"\<ReedOrgan\>\"", "\t", "\"\<ReverseCymbal\>\"", "\t", 
+    "\"\<RockOrgan\>\"", "\t", "\"\<Sawtooth\>\"", "\n", "\"\<SciFi\>\"", 
+    "\t", "\"\<Seashore\>\"", "\t", "\"\<Shakuhachi\>\"", "\t", 
+    "\"\<Shamisen\>\"", "\n", "\"\<Shanai\>\"", "\t", "\"\<Sitar\>\"", "\t", 
+    "\"\<SlapBass\>\"", "\t", "\"\<SlapBass2\>\"", "\n", "\"\<SopranoSax\>\"",
+     "\t", "\"\<Soundtrack\>\"", "\t", "\"\<Square\>\"", "\t", 
+    "\"\<Steeldrums\>\"", "\n", "\"\<SteelGuitar\>\"", "\t", 
+    "\"\<Strings\>\"", "\t", "\"\<Strings2\>\"", "\t", "\"\<Sweep\>\"", "\n", 
+    "\"\<SynthBass\>\"", "\t", "\"\<SynthBass2\>\"", "\t", 
+    "\"\<SynthBrass\>\"", "\t", "\"\<SynthBrass2\>\"", "\n", 
+    "\"\<SynthDrum\>\"", "\t", "\"\<SynthStrings\>\"", "\t", 
+    "\"\<SynthStrings2\>\"", "\t", "\"\<SynthVoice\>\"", "\n", 
+    "\"\<Taiko\>\"", "\t", "\"\<Telephone\>\"", "\t", "\"\<TenorSax\>\"", 
+    "\t", "\"\<Timpani\>\"", "\n", "\"\<Tinklebell\>\"", "\t", 
+    "\"\<TremoloStrings\>\"", "\t", "\"\<Trombone\>\"", "\t", 
+    "\"\<Trumpet\>\"", "\n", "\"\<Tuba\>\"", "\t", "\"\<TubularBells\>\"", 
+    "\t", "\"\<Vibraphone\>\"", "\t", "\"\<Viola\>\"", "\n", "\"\<Violin\>\"",
+     "\t", "\"\<Voice\>\"", "\t", "\"\<VoiceAahs\>\"", "\t", 
+    "\"\<VoiceOohs\>\"", "\n", "\"\<Warm\>\"", "\t", "\"\<Whistle\>\"", "\t", 
+    "\"\<Woodblock\>\"", "\t", "\"\<Xylophone\>\""}], "\n", "\n", "\n", 
+   "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"data", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+      "\"\<http://www.nch.com.au/acm/8kgsm.wav\>\"", ",", "\"\<Data\>\""}], 
+      "]"}]}], ";", "\n", 
+    RowBox[{"dft", "=", 
+     RowBox[{"Fourier", "[", "data", "]"}]}], ";"}], "*)"}], "\n", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"sound", "=", 
+    RowBox[{
+     RowBox[{"Import", "[", "\"\<ExampleData/rule30.wav\>\"", "]"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Animate", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"k", "\[Equal]", "0"}], "||", 
+           RowBox[{"k", "\[Equal]", "1"}]}], ",", 
+          RowBox[{"EmitSound", "[", "sound", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Plot", "[", 
+         RowBox[{
+          RowBox[{"k", "*", 
+           RowBox[{"x", "^", "2"}]}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", 
+            RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+          RowBox[{"PlotRange", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "2"}], ",", "2"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "10"}], ",", "10"}], "}"}]}], "}"}]}]}], "]"}]}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", 
+         RowBox[{"-", "2"}], ",", "2", ",", "0.1", ",", 
+         RowBox[{"AnimationRate", "\[Rule]", "1"}], ",", 
+         RowBox[{"AnimationRunning", "\[Rule]", "False"}]}], "}"}]}], 
+      "]"}]}]}], "\n", "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Composing", " ", "Music", " ", "with", " ", "Mathematica"}], 
+    "*)"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{"s", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sound", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Flute\>\"", ",", 
+          RowBox[{"SoundNote", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"1", ",", "3", ",", "5", ",", "8"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], "}"}], "]"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"Export", "[", 
+        RowBox[{"\"\<song.mp3\>\"", ",", " ", "s", ",", " ", "\"\<MP3\>\""}], 
+        "]"}], "\[IndentingNewLine]", 
+       RowBox[{"Export", "[", 
+        RowBox[{
+        "\"\<song.midi\>\"", ",", " ", "s", ",", " ", "\"\<Midi\>\""}], "]"}],
+        "\[IndentingNewLine]", "\n", "A"}], "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"SoundNote", "[", 
+         RowBox[{"k", ",", "0.1"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", "12"}], "}"}]}], "]"}]}]}], ";", "\n", 
+    RowBox[{"s", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sound", "[", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Guitar\>\"", ",", "A"}], "}"}], "]"}], "\n", "A"}], "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"u", "=", 
+          RowBox[{
+           RowBox[{"Mod", "[", 
+            RowBox[{
+             RowBox[{"Fibonacci", "[", "k", "]"}], ",", "40"}], "]"}], "-", 
+           "30"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"u", "+", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"RandomChoice", "[", 
+             RowBox[{"{", 
+              RowBox[{"3", ",", "5"}], "}"}], "]"}], ",", 
+            RowBox[{"RandomChoice", "[", 
+             RowBox[{"{", 
+              RowBox[{"5", ",", "8"}], "}"}], "]"}]}], "}"}]}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"k", ",", "10"}], "}"}]}], "]"}]}]}], ";", "\n", 
+    RowBox[{"s", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sound", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Bird\>\"", ",", 
+           RowBox[{"Map", "[", 
+            RowBox[{"SoundNote", ",", "A"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "8"}], "}"}]}], "]"}], "\n", "f"}], "=", 
+      RowBox[{"{", 
+       RowBox[{
+       "1", ",", "1", ",", "3", ",", "3", ",", "5", ",", "5", ",", "1", ",", 
+        "1", ",", "1", ",", "1", ",", "3", ",", "3", ",", "5", ",", "5", ",", 
+        "1", ",", "1", ",", "5", ",", "5", ",", "6", ",", "6", ",", "8", ",", 
+        "8", ",", "8", ",", "8", ",", "5", ",", "5", ",", "6", ",", "6", ",", 
+        "8", ",", "8", ",", "8", ",", "8", ",", "8", ",", "10", ",", "8", ",",
+         "6", ",", "5", ",", "5", ",", "1", ",", "1", ",", "8", ",", "10", 
+        ",", "8", ",", "6", ",", "5", ",", "5", ",", "1", ",", "1", ",", "3", 
+        ",", "3", ",", 
+        RowBox[{"-", "4"}], ",", 
+        RowBox[{"-", "4"}], ",", "1", ",", "1", ",", "1", ",", "1"}], 
+       "}"}]}]}], ";", "\n", 
+    RowBox[{"A", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{"SoundNote", ",", "f"}], "]"}]}], ";", "\n", 
+    RowBox[{"s1", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Piano\>\"", ",", "A"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "24"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"s2", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Flute\>\"", ",", 
+         RowBox[{"RotateRight", "[", 
+          RowBox[{"A", ",", "8"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "24"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"s3", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Guitar\>\"", ",", 
+         RowBox[{"RotateRight", "[", 
+          RowBox[{"A", ",", "16"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "24"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"s", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sound", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"s1", ",", "s2", ",", "s3"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "12"}], "}"}]}], "]"}], "\n", 
+       RowBox[{"Sound", "[", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"SoundNote", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"k", ",", 
+               RowBox[{"k", "+", "5"}], ",", 
+               RowBox[{"k", "+", "8"}]}], "}"}], ",", 
+             RowBox[{"0.1", " ", 
+              RowBox[{"{", 
+               RowBox[{"k", ",", 
+                RowBox[{"k", "+", "1"}]}], "}"}]}], ",", "k", ",", 
+             RowBox[{"SoundVolume", "\[Rule]", 
+              RowBox[{"Random", "[", "]"}]}]}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "15"}], "}"}]}], "]"}], ",", "7"}], "]"}], "\n",
+        "n"}], "=", "40"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{"T", "[", "x_", "]"}], ":=", 
+     RowBox[{"x", "+", 
+      RowBox[{"RandomChoice", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "0", ",", "1"}], "}"}], "]"}]}]}], ";", 
+    RowBox[{"t", "=", 
+     RowBox[{"NestList", "[", 
+      RowBox[{"T", ",", "0", ",", "n"}], "]"}]}], ";", "\n", 
+    RowBox[{"a1", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"SoundNote", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"t", "[", 
+            RowBox[{"[", "k", "]"}], "]"}], ",", 
+           RowBox[{"5", "+", 
+            RowBox[{"t", "[", 
+             RowBox[{"[", "k", "]"}], "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", 
+           RowBox[{"k", "+", "1"}]}], "}"}], ",", "\"\<Piano\>\"", ",", 
+         RowBox[{"SoundVolume", "\[Rule]", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"k", "/", "3"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "n"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"a2", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"SoundNote", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"12", "+", 
+            RowBox[{"t", "[", 
+             RowBox[{"[", "k", "]"}], "]"}]}], ",", 
+           RowBox[{"17", "+", 
+            RowBox[{"t", "[", 
+             RowBox[{"[", "k", "]"}], "]"}]}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", 
+           RowBox[{"k", "+", "1"}]}], "}"}], ",", "\"\<Flute\>\"", ",", 
+         RowBox[{"SoundVolume", "\[Rule]", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"k", "/", "2"}], "]"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "n"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sound", "[", 
+       RowBox[{
+        RowBox[{"Union", "[", 
+         RowBox[{"a1", ",", "a2"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}]}], "]"}], "\n", "A1"}], "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"k", ",", 
+         RowBox[{"k", "+", "2", "+", 
+          RowBox[{"RandomChoice", "[", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2"}], "}"}], "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", 
+         RowBox[{"-", "40"}], ",", "40"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"A2", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"k", ",", 
+         RowBox[{"k", "+", "2", "+", 
+          RowBox[{"RandomChoice", "[", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "2"}], "}"}], "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "40", ",", 
+         RowBox[{"-", "40"}], ",", 
+         RowBox[{"-", "1"}]}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"s1", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Flute\>\"", ",", 
+         RowBox[{"Map", "[", 
+          RowBox[{"SoundNote", ",", "A1"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"s2", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Flute\>\"", ",", 
+         RowBox[{"Map", "[", 
+          RowBox[{"SoundNote", ",", "A2"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sound", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"s1", ",", "s2"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "8"}], "}"}]}], "]"}], "\n", "A"}], "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"RandomChoice", "[", 
+        RowBox[{
+         RowBox[{"Range", "[", "80", "]"}], "-", "40"}], "]"}], ",", 
+       RowBox[{"{", "30", "}"}], ",", 
+       RowBox[{"{", "6", "}"}]}], "]"}]}], ";", 
+    RowBox[{"Clear", "[", "f", "]"}], ";", "\n", 
+    RowBox[{
+     RowBox[{"f", "[", "x_", "]"}], ":=", 
+     RowBox[{"SoundNote", "[", 
+      RowBox[{"x", ",", 
+       RowBox[{"RandomChoice", "[", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "2"}], "}"}], "]"}]}], "]"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Sound", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<Piano\>\"", ",", 
+          RowBox[{"Map", "[", 
+           RowBox[{"f", ",", "A"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6"}], "}"}]}], "]"}], "\n", "p"}], "=", 
+     RowBox[{"3", " ", 
+      RowBox[{
+       RowBox[{"RealDigits", "[", 
+        RowBox[{
+         RowBox[{"Pi", "-", "3"}], ",", "10", ",", "40"}], "]"}], "[", 
+       RowBox[{"[", "1", "]"}], "]"}]}]}], ";", "\n", 
+    RowBox[{"A", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"p", "[", 
+          RowBox[{"[", "k", "]"}], "]"}], ",", 
+         RowBox[{"p", "[", 
+          RowBox[{"[", 
+           RowBox[{"k", "+", "1"}], "]"}], "]"}], ",", 
+         RowBox[{"p", "[", 
+          RowBox[{"[", 
+           RowBox[{"k", "+", "2"}], "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", 
+         RowBox[{
+          RowBox[{"Length", "[", "p", "]"}], "-", "2"}]}], "}"}]}], "]"}]}], 
+    ";", "\n", 
+    RowBox[{"s", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sound", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<Viola\>\"", ",", 
+           RowBox[{"Map", "[", 
+            RowBox[{"SoundNote", ",", "A"}], "]"}]}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "6"}], "}"}]}], "]"}], "\n", "n"}], "=", "30"}]}],
+     ";", 
+    RowBox[{"A", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Mod", "[", 
+         RowBox[{
+          RowBox[{"k", "^", "2"}], ",", "80"}], "]"}], "-", "40"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "n"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"L", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Sin", "[", 
+        RowBox[{"k", " ", 
+         RowBox[{"Sqrt", "[", "2", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "n"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"V", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Random", "[", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "n"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{"f", "[", "k_", "]"}], ":=", 
+     RowBox[{"SoundNote", "[", 
+      RowBox[{
+       RowBox[{"A", "[", 
+        RowBox[{"[", "k", "]"}], "]"}], ",", 
+       RowBox[{"L", "[", 
+        RowBox[{"[", "k", "]"}], "]"}], ",", 
+       RowBox[{"SoundVolume", "\[Rule]", 
+        RowBox[{"V", "[", 
+         RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{"g", "[", "k_", "]"}], ":=", 
+     RowBox[{"SoundNote", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"A", "[", 
+          RowBox[{"[", "k", "]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"A", "[", 
+           RowBox[{"[", "k", "]"}], "]"}], "+", "5"}]}], "}"}], ",", 
+       RowBox[{"L", "[", 
+        RowBox[{"[", "k", "]"}], "]"}], ",", 
+       RowBox[{"SoundVolume", "\[Rule]", 
+        RowBox[{"V", "[", 
+         RowBox[{"[", "k", "]"}], "]"}]}]}], "]"}]}], ";", "\n", 
+    RowBox[{"s1", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Flute\>\"", ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"f", "[", "k", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "n"}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "2"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"s2", "=", 
+     RowBox[{"Sound", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Piano\>\"", ",", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"g", "[", "k", "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "n"}], "}"}]}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "2"}], "}"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"Sound", "[", 
+     RowBox[{"{", 
+      RowBox[{"s1", ",", "s2"}], "}"}], "]"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"Sound", "[", 
+   RowBox[{"SoundNote", "[", 
+    RowBox[{"\"\<G\>\"", ",", "1", ",", "\"\<Violin\>\""}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.786887358772665*^9, 3.7868873606291723`*^9}, {
+  3.786912161246283*^9, 3.786912174898979*^9}, {3.7869123514518747`*^9, 
+  3.786912390216707*^9}, {3.7869126204465*^9, 3.786912659728611*^9}, {
+  3.7869128013797398`*^9, 3.786912948707696*^9}}],
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"SoundNote", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<C\>\"", ",", "\"\<E\>\"", ",", " ", "\"\<G\>\""}], "}"}], 
+      ",", " ", "0.5", ",", " ", 
+      RowBox[{"SoundVolume", " ", "->", " ", "0.1"}]}], "]"}], "//", 
+    "Sound"}], "  ", "//", " ", "EmitSound"}]}]], "Input",
+ CellChangeTimes->{{3.786887468584365*^9, 3.78688751543163*^9}, {
+  3.786887551327862*^9, 3.7868876209585857`*^9}, {3.786887713304009*^9, 
+  3.78688773217229*^9}, {3.786888386888267*^9, 3.786888387156207*^9}, {
+  3.7868884342445583`*^9, 3.786888437418704*^9}, {3.7868885251736603`*^9, 
+  3.7868885507636137`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"CMajor", " ", "=", " ", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"SoundNote", "[", "i", "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", " ", "0", ",", " ", "11"}], "}"}]}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.7868879132367973`*^9, 3.786887963321661*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RandomChoice", "[", 
+   RowBox[{"CMajor", ",", " ", "20"}], "]"}], "//", " ", "Sound"}]], "Input",
+ CellChangeTimes->{{3.786888000172373*^9, 3.7868880564304657`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pitch", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<C3\>\"", ",", "\"\<D3\>\"", ",", "\"\<E3\>\"", ",", "\"\<F3\>\"", 
+     ",", "\"\<G3\>\"", ",", "\"\<A3\>\"", ",", "\"\<B3\>\"", ",", 
+     "\"\<C4\>\""}], "}"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"tempo", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    ".5", ",", "1", ",", ".5", ",", "1", ",", ".3", ",", ".2", ",", ".1", ",",
+      ".1"}], "}"}]}], ";"}], "\n", 
+ RowBox[{"Sound", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"SoundNote", "[", 
+     RowBox[{"#", ",", "#2", ",", "\"\<Piano\>\""}], "]"}], "&"}], "@@@", 
+   RowBox[{"Transpose", "@", 
+    RowBox[{"{", 
+     RowBox[{"pitch", ",", "tempo"}], "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7868918745772047`*^9, 3.786891874581093*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Sound", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"SoundNote", "[", 
+      RowBox[{"\"\<C\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0.3"}], "}"}], ",", "\"\<Piano\>\""}], "]"}], ",", 
+     
+     RowBox[{"SoundNote", "[", 
+      RowBox[{"\"\<G\>\"", ",", 
+       RowBox[{"{", 
+        RowBox[{"0.3", ",", "1"}], "}"}], ",", "\"\<Piano\>\""}], "]"}]}], 
+    "}"}], "]"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"\:5f00\:59cb\:65f6\:95f4", "\:ff0c", "\:7ed3\:675f\:65f6\:95f4"}],
+    "*)"}]}]], "Input",
+ CellChangeTimes->{{3.7868934126352577`*^9, 3.786893412637807*^9}, {
+  3.786893479817322*^9, 3.786893544991935*^9}, {3.786893580823576*^9, 
+  3.7868935833417997`*^9}, {3.786893632027907*^9, 3.786893651419615*^9}, {
+  3.7868936863467293`*^9, 3.786893740799802*^9}, {3.786893779764277*^9, 
+  3.786893845139831*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.786912147804018*^9, 3.786912156281748*^9}}]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{134, Automatic}, {38, Automatic}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 6, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 19992, 510, 1747, "Input"],
+Cell[20553, 532, 672, 15, 28, "Input"],
+Cell[21228, 549, 305, 8, 28, "Input"],
+Cell[21536, 559, 201, 4, 28, "Input"],
+Cell[21740, 565, 784, 22, 63, "Input"],
+Cell[22527, 589, 869, 22, 31, "Input"],
+Cell[23399, 613, 92, 1, 28, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

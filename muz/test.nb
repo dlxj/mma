@@ -1,0 +1,106 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2970,         97]
+NotebookOptionsPosition[      2607,         80]
+NotebookOutlinePosition[      2961,         96]
+CellTagsIndexPosition[      2918,         93]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "@", 
+   RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Get", "@", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ParentDirectory", "[", "]"}], ",", "\"\<std.wl\>\""}], "}"}], 
+     "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{"Sound", "[", 
+  RowBox[{"SoundNote", "[", 
+   RowBox[{"\"\<G\>\"", ",", "1", ",", "\"\<Violin\>\""}], "]"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.786867759617428*^9, 3.786867759618618*^9}}],
+
+Cell[BoxData[
+ RowBox[{"EmitSound", "[", 
+  RowBox[{"Sound", "[", 
+   RowBox[{"SoundNote", "[", 
+    RowBox[{"\"\<G\>\"", ",", "1", ",", "\"\<Violin\>\""}], "]"}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7868679481850653`*^9, 3.786867981810141*^9}},
+ NumberMarks->False],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7868703565097313`*^9, 3.7868703618356457`*^9}, {
+  3.786870493412561*^9, 3.7868705104226933`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"(*", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+   "\:4ee3\:7801\:901a\:8fc7", " ", "Import", " ", "\:5bfc\:5165", " ", 
+    "MIDI", " ", "\:6587\:4ef6"}], "\:ff0c", 
+   RowBox[{"\:5e76\:67e5\:770b\:524d\:4e09\:4e2a", " ", "SoundNote"}], 
+   "\:ff0c", 
+   RowBox[{
+   "\:6700\:540e\:4ee5", " ", "120", "s", " ", 
+    "\:7684\:603b\:65f6\:957f\:6f14\:594f", " ", "MIDI", " ", 
+    "\:4e50\:66f2"}], "\:3002", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"sn", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"Directory", "[", "]"}], "<>", 
+       "\"\<\\WolframAudio\\wtk1-prelude1.mid\>\""}], "]"}]}], ";", "\n", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"sn", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "[", 
+      RowBox[{"[", 
+       RowBox[{"1", ";;", "3"}], "]"}], "]"}], "\n", 
+     RowBox[{"Sound", "[", 
+      RowBox[{"sn", ",", "120"}], "]"}]}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{{3.786870918411147*^9, 3.7868709184146852`*^9}, {
+  3.786871024215867*^9, 3.786871032913488*^9}}]
+},
+WindowSize->{808, 619},
+WindowMargins->{{142, Automatic}, {17, Automatic}},
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 6, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 567, 16, 80, "Input"],
+Cell[1128, 38, 279, 7, 28, "Input"],
+Cell[1410, 47, 147, 2, 28, "Input"],
+Cell[1560, 51, 1043, 27, 98, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
