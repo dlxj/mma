@@ -10,34 +10,135 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      5687,        151]
-NotebookOptionsPosition[      5027,        134]
-NotebookOutlinePosition[      5365,        149]
-CellTagsIndexPosition[      5322,        146]
+NotebookDataLength[     10324,        256]
+NotebookOptionsPosition[      9438,        235]
+NotebookOutlinePosition[      9776,        250]
+CellTagsIndexPosition[      9733,        247]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[BoxData[{
  RowBox[{
   RowBox[{"SetDirectory", "@", 
    RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "\n", 
  RowBox[{
-  RowBox[{
-   RowBox[{"Get", "@", 
-    RowBox[{"FileNameJoin", "[", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"ParentDirectory", "[", "]"}], ",", "\"\<std.wl\>\""}], "}"}], 
-     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
- RowBox[{"Sound", "[", 
-  RowBox[{"SoundNote", "[", 
-   RowBox[{"\"\<G\>\"", ",", "1", ",", "\"\<Harmonica\>\""}], "]"}], 
-  "]"}]}], "Input",
+  RowBox[{"Get", "@", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ParentDirectory", "[", "]"}], ",", "\"\<std.wl\>\""}], "}"}], 
+    "]"}]}], "\:ff1b", "\[IndentingNewLine]", 
+  RowBox[{"Sound", "[", 
+   RowBox[{"SoundNote", "[", 
+    RowBox[{"\"\<G\>\"", ",", "1", ",", "\"\<Harmonica\>\""}], "]"}], 
+   "]"}]}]}], "Input",
  CellChangeTimes->{{3.786867759617428*^9, 3.786867759618618*^9}, 
-   3.788639617524981*^9},
+   3.788639617524981*^9, {3.788656253414762*^9, 3.788656284389915*^9}, {
+   3.788656366632841*^9, 
+   3.788656405593384*^9}},ExpressionUUID->"edde8dce-6f62-4645-9e15-\
+dcaff7b3baf1"],
+
+Cell[BoxData["\<\"/Users/vvw/Documents/GitHub/mma/std.wl\"\>"], "Output",
+ CellChangeTimes->{3.788656255185666*^9, 3.7886562859437313`*^9},
  CellLabel->
-  "(Debug) In[1]:=",ExpressionUUID->"edde8dce-6f62-4645-9e15-dcaff7b3baf1"],
+  "(Debug) Out[12]=",ExpressionUUID->"e366f8ea-1b2e-4d12-bacd-a99fa6f70b8a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  GraphicsBox[{
+    {RGBColor[0.9568627450980393, 0.9568627450980393, 0.9568627450980393], 
+     RectangleBox[{0, 0}, {360, -164}]}, {InsetBox[
+      GraphicsBox[
+       {Hue[0.021977904928223657`, 0.9, 0.7], 
+        StyleBox[RectangleBox[{0., 0.5153202993613198}, {0.95, 0.5272250612660818}],
+         Antialiasing->True]},
+       AspectRatio->NCache[
+         Rational[6, 35], 0.17142857142857143`],
+       Background->GrayLevel[1],
+       Frame->True,
+       FrameStyle->GrayLevel[0.75],
+       FrameTicks->False,
+       ImagePadding->None,
+       PlotRange->{All, All},
+       PlotRangePadding->{Automatic, 0.05}], {180, -35}, 
+      ImageScaled[{0.5, 0.5}], {350, 60},
+      Background->RGBColor[
+       0.9568627450980393, 0.9568627450980393, 0.9568627450980393]], 
+     InsetBox[
+      GraphicsBox[
+       {GrayLevel[0.6], RectangleBox[{0, 0}]},
+       AspectRatio->NCache[
+         Rational[6, 35], 0.17142857142857143`],
+       Background->GrayLevel[1],
+       Frame->True,
+       FrameStyle->GrayLevel[0.75],
+       FrameTicks->False,
+       ImagePadding->None], {180, -100}, ImageScaled[{0.5, 0.5}], {350, 60},
+      Background->RGBColor[
+       0.9568627450980393, 0.9568627450980393, 0.9568627450980393]]}, InsetBox[
+     StyleBox[
+      TemplateBox[{
+       StyleBox[
+        "\" | \"", FontSize -> 14, FontColor -> 
+         RGBColor[0.5098039215686274, 0.5098039215686274, 0.5098039215686274],
+          StripOnInput -> False],StyleBox[
+         TemplateBox[{"\"1\"", "\" s\""}, "RowDefault"], FontColor -> 
+         RGBColor[0.5098039215686274, 0.5098039215686274, 0.5098039215686274],
+          StripOnInput -> False]},
+       "RowWithSeparator"], "DialogStyle",
+      StripOnInput->False], {355, -159}, Scaled[{1, 0}]], 
+    TagBox[{
+      {RGBColor[0.9568627450980393, 0.9568627450980393, 0.9568627450980393], 
+       RectangleBox[{5, -158}, {29, -135}]}, 
+      {RGBColor[0.27450980392156865`, 0.5411764705882353, 0.796078431372549], 
+       PolygonBox[
+        NCache[{{11, -157}, {11, -136}, {20., Rational[-293, 2]}, {
+          11, -157}}, {{11, -157}, {11, -136}, {20., -146.5}, {11, -157}}]], 
+       StyleBox[{},
+        Antialiasing->False]}},
+     EventHandlerTag[{"MouseClicked" :> If[True, Sound`EmitMIDI[
+           Sound`MIDISequence[{
+             Sound`MIDITrack[{
+               Sound`MIDIEvent[0, "SetTempo", "Tempo" -> 1000000], 
+               Sound`MIDIEvent[
+               0, "ProgramCommand", "Channel" -> 0, "Value" -> 22], 
+               Sound`MIDIEvent[
+               0, "NoteOn", "Note" -> 67, "Channel" -> 0, "Velocity" -> 127], 
+               
+               Sound`MIDIEvent[
+               48, "NoteOff", "Note" -> 67, "Channel" -> 0, "Velocity" -> 
+                0]}]}, "DivisionType" -> "PPQ", "Resolution" -> 48]]; 
+         Sound`EmitSampledSound[None, "Preemptive"], 
+         FEPrivate`EmitSound[None, "Preemptive"]], Method -> "Preemptive", 
+       PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+    TagBox[{
+      {RGBColor[0.9568627450980393, 0.9568627450980393, 0.9568627450980393], 
+       RectangleBox[{29, -158}, {53, -135}]}, 
+      {RGBColor[0.27450980392156865`, 0.5411764705882353, 0.796078431372549], 
+       RectangleBox[{35, -152}, {47, -141}], 
+       StyleBox[{},
+        Antialiasing->False]}},
+     EventHandlerTag[{"MouseClicked" :> If[True, Sound`EmitSampledSound[
+           SampledSoundList[{{0.}}, 8000], "Preemptive"]; Sound`StopMIDI[], 
+         FEPrivate`EmitSound[
+          SampledSoundList[{{0.}}, 8000], "Preemptive"]], Method -> 
+       "Preemptive", PassEventsDown -> Automatic, PassEventsUp -> True}]], 
+    {GrayLevel[0.75], 
+     StyleBox[LineBox[{{0, 0}, {360, 0}, {360, -164}, {0, -164}, {0, 0}}],
+      Antialiasing->False]}},
+   ContentSelectable->False,
+   ImageSize->250,
+   PlotRange->{{0, 360}, {-164, 0}},
+   PlotRangePadding->1],
+  Sound[
+   SoundNote["G", 1, "Harmonica"]]]], "Output",
+ CellChangeTimes->{3.788656255185666*^9, 3.788656286052698*^9},
+ CellLabel->
+  "(Debug) Out[13]=",ExpressionUUID->"eefcf6fe-4dba-4357-93de-7389944cf836"]
+}, Open  ]],
 
 Cell[BoxData[
  RowBox[{"EmitSound", "[", 
@@ -148,11 +249,15 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 685, 19, 94, "Input",ExpressionUUID->"edde8dce-6f62-4645-9e15-dcaff7b3baf1"],
-Cell[1246, 41, 303, 8, 30, "Input",ExpressionUUID->"ca93b12a-8d5a-4890-a8d0-4e3d1dd0b76a"],
-Cell[1552, 51, 362, 8, 30, "Input",ExpressionUUID->"6677c52f-07dd-42ac-a56e-ad8f4521562b"],
-Cell[1917, 61, 432, 9, 52, "Input",ExpressionUUID->"57e4e687-d4b4-4327-baed-61a0d919059a"],
-Cell[2352, 72, 2671, 60, 430, "Input",ExpressionUUID->"56f83602-a4ae-4ac5-8474-cbd0a4405bd9"]
+Cell[CellGroupData[{
+Cell[580, 22, 737, 19, 73, "Input",ExpressionUUID->"edde8dce-6f62-4645-9e15-dcaff7b3baf1"],
+Cell[1320, 43, 229, 3, 45, "Output",ExpressionUUID->"e366f8ea-1b2e-4d12-bacd-a99fa6f70b8a"],
+Cell[1552, 48, 4090, 91, 143, "Output",ExpressionUUID->"eefcf6fe-4dba-4357-93de-7389944cf836"]
+}, Open  ]],
+Cell[5657, 142, 303, 8, 30, "Input",ExpressionUUID->"ca93b12a-8d5a-4890-a8d0-4e3d1dd0b76a"],
+Cell[5963, 152, 362, 8, 30, "Input",ExpressionUUID->"6677c52f-07dd-42ac-a56e-ad8f4521562b"],
+Cell[6328, 162, 432, 9, 52, "Input",ExpressionUUID->"57e4e687-d4b4-4327-baed-61a0d919059a"],
+Cell[6763, 173, 2671, 60, 430, "Input",ExpressionUUID->"56f83602-a4ae-4ac5-8474-cbd0a4405bd9"]
 }
 ]
 *)
